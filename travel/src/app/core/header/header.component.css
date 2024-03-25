@@ -1,0 +1,41 @@
+.navigation {
+    background-color: #573b8a;
+  }
+  
+  .navigation-bar {
+      display: flex;
+      gap: 3em;
+      align-items: center;
+      padding: 1em;
+    }
+    
+    .navigation-menu ul {
+      display: flex;
+      gap: 2em;
+    }
+    
+    .navigation-menu ul li {
+      display: block;
+      flex: 0 0 6em;
+      text-align: center;
+    }
+    
+    .navigation-menu ul li a {
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      border: 0.1em solid grey;
+      padding: 1em 2em;
+      border-radius: 0.5em;
+    }
+    
+    .logo i {
+      font-size: 5em;
+      color: #39a7a7;
+    }
+    
+    .navigation-menu ul li a:hover {
+      background-color: rgb(33, 57, 57);
+      ;
+    }
+    

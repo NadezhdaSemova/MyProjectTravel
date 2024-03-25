@@ -1,0 +1,40 @@
+.footer {
+    background-color: #573b8a;
+}
+
+.items {
+  display: flex;
+}
+
+.logo {
+    flex: 0 0 20%;
+}
+
+.logo i {
+    font-size: 5em;
+    color: #39a7a7;
+  }
+
+  .footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .logos {
+    flex: 0 0 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logos i {
+    display: inline-block;
+    font-size: 30px;
+    color: white;
+}
+
+i:hover {
+    font-size: 40px;
+}
