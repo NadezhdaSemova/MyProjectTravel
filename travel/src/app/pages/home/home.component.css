@@ -1,0 +1,57 @@
+.slide-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.1em solid grey;
+    border-radius: 0.5em;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.2);
+    height: 40em;
+    background: linear-gradient(90deg, rgba(160, 204, 221, 1) 0%, rgba(236, 241, 249, 0.4838882398753894) 78%);
+    ;
+  }
+  
+  .slide-bar h2 {
+    color: white;
+    text-transform: uppercase;
+    padding-block: 2em;
+    letter-spacing: 0.1em;
+  }
+  
+  .top-places {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    padding-bottom: 1em;
+  }
+  
+  .top-places .card {
+    flex: 0 0 350px;
+    border: 0.1em solid grey;
+    padding: 0.3em;
+    border-radius: 0.5em;
+  }
+  
+  .top-places .card img {
+    height: 20em;
+    overflow: hidden;
+    margin-bottom: 2em;
+    border-radius: 0.5em;
+  }
+  
+  .top-places .card .info {
+    display: flex;
+    gap: 1em;
+    margin-inline: 2em;
+    align-items: center;
+  }
+    
+  .top-places .card:hover {
+    position: relative;
+    bottom: 30px;
+    padding: 1em;
+    border: 0.1em solid black;
+    box-shadow: inset 1em 1em 1em rgba(0, 0, 0, 0.2);
+    ;
+  }
+  

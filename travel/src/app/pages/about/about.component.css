@@ -1,0 +1,36 @@
+.container-about{
+    display: flex;
+    background-color: #86acac;
+    width: 100%;
+    margin: 2em;
+    border-radius: 1em;
+}
+img {
+    
+    float: left;
+}
+
+.img-with-text {
+    flex: 1 1 30%;
+    padding: 0.5em;
+    border: 0.1em solid black;
+    margin: 0.5em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    min-height: 15em;
+    margin-bottom: 1em;
+}
+
+.about-information{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-indent: 2em;
+    max-width: 30em;
+}
