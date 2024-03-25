@@ -18,6 +18,13 @@ import { EditComponent } from './edit/edit.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CreateComponent,
+    GalleryComponent,
+    DeleteComponent,
+    DetailsComponent,
+    EditComponent
   ]
 })
 export class PlacesModule { }

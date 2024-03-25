@@ -16,6 +16,12 @@ import { AboutComponent } from './about/about.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HomeComponent,
+    ErrorComponent,
+    ContactsComponent,
+    AboutComponent
   ]
 })
 export class PagesModule { }
