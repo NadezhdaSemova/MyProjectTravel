@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PagesService } from '../pages.service';
 import { Places } from 'src/app/share/models/Places';
+import { PlacesService } from 'src/app/places/places.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { Places } from 'src/app/share/models/Places';
 export class HomeComponent implements OnInit {
 
   places: Places[] = [];
-  constructor(private placesService: PagesService) { }
+  constructor(private placesService: PlacesService) { }
 
   ngOnInit(): void {
     this.placesService.getPlaces().subscribe((place) =>

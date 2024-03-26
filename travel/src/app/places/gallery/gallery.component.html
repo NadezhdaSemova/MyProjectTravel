@@ -1,1 +1,21 @@
-<p>gallery works!</p>
+<app-search></app-search>
+
+<section class="gallery">
+    <div class="container">
+        <div class="gallery-site">
+            <h1>Gallery</h1>
+            
+            <div class="places">
+                <div *ngFor="let place of places" class="card">
+                    <img src={{place.imgUrl}}
+                        alt="">
+                    <a [routerLink]="['/places', place.id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+

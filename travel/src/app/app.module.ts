@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { ShareModule } from './share/share.module';
 import { PlacesModule } from './places/places.module';
 import { PagesRoutingModule } from './pages/pages-routing.modules';
+import { PlacesRoutingModule } from './places/places-router.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { PagesRoutingModule } from './pages/pages-routing.modules';
     BrowserModule,
     HttpClientModule,
     RouterModule,
+
+    //routingModules
     PagesRoutingModule,
+    PlacesRoutingModule,
 
     //Modules
     CoreModule,

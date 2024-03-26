@@ -1,0 +1,55 @@
+.place h1 {
+    text-align: center;
+    padding-block: 2em;
+    color: white;
+    letter-spacing: 0.2em;
+  }
+  
+  .information {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
+  
+  .information .media {
+    flex: 0 0 30em;
+  }
+  
+  .information article {
+    flex: 1 1 auto;
+  }
+  
+  .information article p {
+    text-indent: 2em;
+    text-align: justify;
+    text-justify: inter-word;
+    padding-bottom: 2em;
+  }
+  
+  [class*="btn"] {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+  }
+  
+  .information [class*="btn"] button {
+    flex: 0 0 35%;
+    padding-block: 0.5em;
+    border-radius: 2em;
+    background: linear-gradient(90deg, rgba(182, 24, 43, 1) 0%, rgba(244, 4, 8, 0.4838882398753894) 78%);
+    margin-bottom: 1em;
+  }
+  
+  .information [class*="btn"] button i {
+    display: block;
+    font-size: 20px;
+  }
+  
+  .information [class*="btn"] button i:hover {
+    font-size: 30px;
+  }
+  
+  .information [class*="btn"] button:first-of-type {
+    background: linear-gradient(90deg, rgba(36, 166, 103, 1) 0%, rgba(43, 171, 60, 0.4838882398753894) 23%);
+    ;
+  }

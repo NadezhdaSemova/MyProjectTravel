@@ -13,14 +13,5 @@ export class PagesService {
 
   constructor(private http: HttpClient) {}
 
-  getPlaces(): Observable<Places[]>{
-    
-    return this.http.get<Places[]>(`${PLACE_URL}`);
-  }
-
-  getToThreePlaces(): Observable<Places[]>{
-    return this.http.get<Places[]>(PLACE_URL);
-  }
-
   
 }
