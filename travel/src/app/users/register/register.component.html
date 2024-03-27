@@ -1,1 +1,28 @@
-<p>register works!</p>
+<section class="site-registration">
+    <div class="container">
+        <div class="center">
+            <div class="registration">
+                <input type="checkbox" id="chk" aria-hidden="true">
+
+                <div class="signup">
+                    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+                        <label for="chk" aria-hidden="true">Registration</label>
+                        <input formControlName="username" type="text" name="txt" placeholder="User name">
+                        <div *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched">Username is not what we want</div>
+
+                        <input formControlName="email" type="email" name="email" placeholder="Email">
+                        <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">Email is not what we want</div>
+
+                        <input formControlName="password" type="password" name="password" placeholder="Password">
+                        <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">Password is not what we want</div>
+
+                        <input formControlName="repeatPassword" type="repeatPassword" name="repeatPassword" placeholder="Repeat password">
+                        <button>Sign up</button>
+
+                        <div class="already-user">Already a user <a routerLink="/login">Login</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

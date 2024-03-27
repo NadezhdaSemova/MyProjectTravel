@@ -11,6 +11,7 @@ import { ShareModule } from './share/share.module';
 import { PlacesModule } from './places/places.module';
 import { PagesRoutingModule } from './pages/pages-routing.modules';
 import { PlacesRoutingModule } from './places/places-router.module';
+import { UserRoutingModule } from './users/users-router.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PlacesRoutingModule } from './places/places-router.module';
     //routingModules
     PagesRoutingModule,
     PlacesRoutingModule,
+    UserRoutingModule,
 
     //Modules
     CoreModule,

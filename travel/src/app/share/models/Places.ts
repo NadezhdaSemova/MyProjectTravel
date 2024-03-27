@@ -5,3 +5,4 @@ export class Places {
     imgUrl!: string;
     likes!: number
 }
+

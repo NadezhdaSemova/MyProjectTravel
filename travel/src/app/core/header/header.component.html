@@ -7,12 +7,13 @@
             <div class="navigation-menu">
                 <ul>
                     <li><a routerLink="" class="nav-button block">Home</a></li>
-                    <li><a routerLink="/gallery" class="nav-button block">Places</a></li>
-                    <li><a routerLink="/login" class="nav-button block">Login</a></li>
-                    <li><a routerLink="/registration" class="nav-button block">Registration</a></li>
-                    <li><a routerLink="/profile" class="nav-button block">Profile</a></li>
-                    <li><a routerLink="/about" class="nav-button block">About</a></li>
-                    <li><a routerLink="/contact" class="nav-button block">Contact</a></li>
+                    <li *ngIf="isAuth"><a routerLink="/gallery" class="nav-button block">Places</a></li>
+                    <li *ngIf="!isAuth"><a routerLink="/login" class="nav-button block">Login</a></li>
+                    <li *ngIf="!isAuth"><a routerLink="/register" class="nav-button block">Registration</a></li>
+                    <li *ngIf="isAuth"><a (click)="logout()" routerLink="/logout" class="nav-button block">Logout</a></li>
+                    <li *ngIf="isAuth"><a routerLink="/profile" class="nav-button block">Profile</a></li>
+                    <li *ngIf="isAuth"><a routerLink="/about" class="nav-button block">About</a></li>
+                    <li *ngIf="!isAuth"><a routerLink="/contact" class="nav-button block">Contact</a></li>
                 </ul>
             </div>
         </div>

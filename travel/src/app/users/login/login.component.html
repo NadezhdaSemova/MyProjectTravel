@@ -1,1 +1,29 @@
-<p>login works!</p>
+<section class="site-login">
+    <div class="container">
+        <div class="center">
+            <div class="container-login">
+                <input type="checkbox" id="chk" aria-hidden="true">
+
+                <div class="signup">
+                    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                        <label for="chk" aria-hidden="true">Login</label>
+                        <input formControlName="email" type="email" name="email" placeholder="Email" required="">
+
+                        <div class="error-list" *ngIf="loginForm.controls.email.errors && isSubmitted">
+                        <div *ngIf="loginForm.controls.email.errors.required">Should write email!</div>
+                        <div *ngIf="loginForm.controls.email.errors.email">Should write correct email</div>
+                        </div>
+                        <input  formControlName="password" type="password" name="pswd" placeholder="Password" required="">
+                        <div class="error-list" *ngIf="loginForm.controls.password.errors && isSubmitted">
+                            <div *ngIf="loginForm.controls.password.errors.required">Should write password!</div>
+                            </div>
+                        <button type="submit">Login</button>
+                        <div class="not-a-member">Not a member <a routerLink="/register">Register</a></div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
