@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/share/models/Users';
 import { UserService } from 'src/app/users/user.service';
 
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/users/user.service';
 export class HeaderComponent {
   user!: User;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     userService.userObservable.subscribe((newUser) =>
       this.user = newUser
     )
@@ -18,10 +19,11 @@ export class HeaderComponent {
 
   logout() {
     this.userService.logOut();
+    this.router.navigate(['/']);
   }
 
   get isAuth() {
    
-    return this.user.id;
+    return this.user.email;
   }
 }

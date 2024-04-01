@@ -5,9 +5,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { DeleteComponent } from './delete/delete.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
-import { SearchComponent } from './search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,19 +16,17 @@ import { SearchComponent } from './search/search.component';
     GalleryComponent,
     DeleteComponent,
     DetailsComponent,
-    EditComponent, 
-    SearchComponent
+    EditComponent   
   ],
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule
   ],
   exports: [
     CreateComponent,
     GalleryComponent,
     DeleteComponent,
     DetailsComponent,
-    EditComponent,
-    SearchComponent
+    EditComponent
   ]
 })
 export class PlacesModule { }

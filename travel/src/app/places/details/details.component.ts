@@ -10,13 +10,12 @@ import { Places } from 'src/app/share/models/Places';
 })
 export class DetailsComponent implements OnInit {
 
-  currentPlace!: Places;
+  currentPlace = {} as Places;
 
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute) { }
 
   ngOnInit(): void {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
-
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
       this.currentPlace = place
     }

@@ -12,6 +12,7 @@ import { PlacesModule } from './places/places.module';
 import { PagesRoutingModule } from './pages/pages-routing.modules';
 import { PlacesRoutingModule } from './places/places-router.module';
 import { UserRoutingModule } from './users/users-router.module';
+import { AppInterceptor } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { UserRoutingModule } from './users/users-router.module';
     ShareModule,
     PlacesModule
   ],
-  providers: [],
+  providers: [AppInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

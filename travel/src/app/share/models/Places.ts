@@ -1,5 +1,5 @@
 export class Places {
-    id!: string;
+    _id?: string;
     place!: string;
     description!: string;
     imgUrl!: string;

@@ -5,9 +5,9 @@ export const PasswordMatchValidators = (passwordControName: string, repeatPasswo
         const passwordControl = form.get(passwordControName);
         const repeatPasswordControl = form.get(repeatPasswordControlName);
 
-        if(passwordControl || !repeatPasswordControl) return;
+        if(!passwordControl || !repeatPasswordControl) return;
 
-        if(passwordControl!.value !== repeatPasswordControl.value){
+        if(passwordControl.value !== repeatPasswordControl.value){
             repeatPasswordControl.setErrors({notMatch: true})
         }else {
             const errors = repeatPasswordControl.errors;
