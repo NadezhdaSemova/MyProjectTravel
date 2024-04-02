@@ -14,14 +14,23 @@ import { PlacesRoutingModule } from './places/places-router.module';
 import { UserRoutingModule } from './users/users-router.module';
 import { AppInterceptor } from './app.interceptor';
 
+import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
 
     //routingModules
     PagesRoutingModule,

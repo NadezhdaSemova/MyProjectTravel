@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CreateComponent } from './create/create.component';
+import { AuthActivate } from '../guard/auth.activate';
 
 
 const routes: Routes = [
-  {path: 'gallery', component: GalleryComponent},
-   {path: 'places/:id', component: DetailsComponent},
-   {path: 'search/:searchPlace', component: GalleryComponent},
-   {path: 'add/place', component: CreateComponent}
+  {path: 'gallery', component: GalleryComponent,canActivate: [AuthActivate]},
+   {path: 'places/:id', component: DetailsComponent,canActivate: [AuthActivate]},
+   {path: 'search/:searchPlace', component: GalleryComponent,canActivate: [AuthActivate]},
+   {path: 'add/place', component: CreateComponent,canActivate: [AuthActivate]}
 ];
 
 @NgModule({

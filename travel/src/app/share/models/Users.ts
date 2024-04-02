@@ -7,6 +7,12 @@ export class User {
     token!: string;
 }
 
+export class UserForAuthentication {
+    username!: string;
+    email!: string;
+    password!: string;
+}
+
 export interface IUserLogin {
     email: string;
     password: string;

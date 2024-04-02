@@ -30,8 +30,11 @@ export class LoginComponent implements OnInit {
       this.userService.login({email:this.loginForm.controls.email.value, password: this.loginForm.controls.password.value}).subscribe(() =>{
         this.router.navigate(['']);
       });
+      
   }
+  
   logout() {
+    
     this.userService.logOut();
   }
 }

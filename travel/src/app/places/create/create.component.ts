@@ -27,12 +27,17 @@ export class CreateComponent implements OnInit {
     if(this.createForm.invalid) return;
 
     const fv = this.createForm.value;
+    let userId = localStorage.getItem('userId') || undefined;
     const addPlace: Places ={
       place: fv.place,
       description: fv.description,
       imgUrl: fv.imgUrl,
-      likes: 0
+      likes: 0,
+      ownerId: userId 
     };
+
+    
+    console.log(userId);
 
     this.placesesService.postPlace(addPlace).subscribe(_ => {
       this.router.navigate(['/gallery'])

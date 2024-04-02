@@ -3,6 +3,7 @@ export class Places {
     place!: string;
     description!: string;
     imgUrl!: string;
-    likes!: number
+    likes!: number;
+    ownerId?: string;
 }
 
