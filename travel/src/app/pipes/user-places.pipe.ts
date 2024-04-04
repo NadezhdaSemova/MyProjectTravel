@@ -8,20 +8,24 @@ import { Places } from '../share/models/Places';
 })
 export class UserPlacesPipe implements PipeTransform {
 
-  transform(value:Places[], userId: string): any {
+  transform(value:Places[], userId: string, isZero: boolean): any {
 
     const resultArray = [];
+    let currentOwner
 
     for (let current of value){
-      let currentPlace = current['ownerId'];
-      console.log(currentPlace);
-      console.log(`userId${userId}`)
+      currentOwner = current['ownerId'] as string;
+      
 
-      if(currentPlace === userId){
-        resultArray.push(currentPlace);
+      if(currentOwner == userId){
+        console.log(currentOwner);
+      console.log(`userId${userId}`)
+        resultArray.push(current);
       }
     }
-
+    if(resultArray.length >= 1){
+      isZero = false;
+    }
     return resultArray;
   }
 

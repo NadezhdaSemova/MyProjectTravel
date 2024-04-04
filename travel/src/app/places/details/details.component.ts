@@ -22,8 +22,6 @@ export class DetailsComponent implements OnInit {
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
       this.currentPlace = place
       this.postOwner = place.ownerId as string;
-      console.log(this.postOwner)
-      console.log(this.currentUserId)
     }
     )
   }
