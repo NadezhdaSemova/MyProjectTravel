@@ -31,4 +31,8 @@ export class PlacesService {
   editPlace(id: string, place: Places){
     return this.http.put(PLACE_BY_ID_URL + id, place)
   }
+
+  deletePlace (id: string){
+    return this.http.delete(PLACE_BY_ID_URL + id)
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from '../places.service';
 import { Places } from 'src/app/share/models/Places';
 
@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
   postOwner = '';
   
 
-  constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute) { }
+  constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
@@ -26,5 +26,12 @@ export class DetailsComponent implements OnInit {
       console.log(this.currentUserId)
     }
     )
+  }
+
+  deletePlace(){
+    const currentPlaceId = this.activatedRout.snapshot.params['id']
+    this.placesService.deletePlace(currentPlaceId).subscribe( () => {
+      this.router.navigate(['/gallery'])
+    })
   }
 }
