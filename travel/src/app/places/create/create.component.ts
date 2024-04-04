@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit {
     };
 
 
-    this.placesesService.postPlace(addPlace).subscribe(_ => {
+    this.placesesService.postPlace(addPlace).subscribe(() => {
       this.router.navigate(['/gallery'])
     })
   }
