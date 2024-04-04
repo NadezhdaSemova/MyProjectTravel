@@ -8,14 +8,10 @@
                     <form (ngSubmit)="editPlace">
                         <label for="chk" aria-hidden="true">Edit place</label>
                         <input type="text" name="txt" [(ngModel)]="place.place">
-                        <!-- <div *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched">Username is not what we want</div> -->
 
                         <input type="text" name="description" [(ngModel)]="place.description">
-                        <!-- <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">Email is not what we want</div> -->
 
                         <input type="text" name="imgUrl" [(ngModel)]="place.imgUrl">
-                        <!-- <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">Password is not what we want</div> -->
-
                         
                         <button (click)="editPlace()" [routerLink]="['/places/', place._id]">Edit</button>
                         

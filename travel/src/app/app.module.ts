@@ -13,29 +13,18 @@ import { PagesRoutingModule } from './pages/pages-routing.modules';
 import { PlacesRoutingModule } from './places/places-router.module';
 import { UserRoutingModule } from './users/users-router.module';
 
-import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
-
-
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-    }),
 
     //routingModules
     PagesRoutingModule,
