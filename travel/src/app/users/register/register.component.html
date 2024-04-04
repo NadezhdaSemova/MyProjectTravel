@@ -16,7 +16,7 @@
                         <input formControlName="password" type="password" name="password" placeholder="Password">
                         <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">Password is not what we want</div>
 
-                        <input formControlName="repeatPassword" type="password" name="repeatPassword" placeholder="Repeat password">
+                        <input formControlName="repeatPassword" type="repeatPassword" name="repeatPassword" placeholder="Repeat password">
                         <button>Sign up</button>
 
                         <div class="already-user">Already a user <a routerLink="/login">Login</a></div>

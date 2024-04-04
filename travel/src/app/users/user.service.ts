@@ -45,7 +45,7 @@ export class UserService {
   private setUserToLocalStorage(user: User) {
     localStorage.setItem("email", user.email);
     localStorage.setItem('username', user.username);
-    localStorage.setItem("userId", user.token);
+    localStorage.setItem("userId", user._id);
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 

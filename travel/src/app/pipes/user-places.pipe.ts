@@ -8,7 +8,7 @@ import { Places } from '../share/models/Places';
 })
 export class UserPlacesPipe implements PipeTransform {
 
-  transform(value:Places[], userId: string, isZero: boolean): any {
+  transform(value:Places[], userId: string): any {
 
     const resultArray = [];
     let currentOwner
@@ -23,9 +23,7 @@ export class UserPlacesPipe implements PipeTransform {
         resultArray.push(current);
       }
     }
-    if(resultArray.length >= 1){
-      isZero = false;
-    }
+   
     return resultArray;
   }
 

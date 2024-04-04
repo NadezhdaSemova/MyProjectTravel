@@ -9,7 +9,7 @@
                 </div> 
                  <div class="profile-information">
                     <p>Email</p>
-                    <p>Visited places: {{places.length}}</p>
+                    <p>Visited places: 32</p>
                     <p>About person</p>
                 </div>
                 <!-- <div class="btn-profile">
@@ -19,14 +19,13 @@
                 </div> -->
 
                 <div class="post-places">
-                    <div *ngFor="let place of places | userPlaces: userId : isZero" class="card">
-                        <div *ngIf="isZero">You dont post any places</div>
+                    <div *ngFor="let place of places | userPlaces: userId" class="card">
                         <img src= "{{place.imgUrl}}"
                             alt="">
                         <div class="info">
                            
                             <p>{{place.place}}</p>
-                            <a [routerLink]="['/places/', place._id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>
+                            <!-- <a [routerLink]="['/place/', {{place._id}}]"><i class="fa-solid fa-book-open-reader"></i> Read More</a> -->
                         </div>
                     </div>
 
