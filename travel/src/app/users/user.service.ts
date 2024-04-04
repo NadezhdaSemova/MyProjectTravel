@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { PLACE_URL, USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
 import { IUserLogin, IUserRegister, UserForAuthentication } from '../share/models/Users';
 import { User } from '../share/models/Users';
+import { Places } from '../share/models/Places';
 
 
 
@@ -13,7 +14,7 @@ import { User } from '../share/models/Users';
 })
 export class UserService {
   user: UserForAuthentication | undefined;
- 
+
   get isLoggedIn(): boolean {
     return !!localStorage.getItem('user')
   }
@@ -25,7 +26,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
-   
+
   }
 
   login(userLogin: IUserLogin): Observable<User> {
@@ -43,21 +44,21 @@ export class UserService {
 
   private setUserToLocalStorage(user: User) {
     localStorage.setItem("email", user.email);
+    localStorage.setItem('username', user.username);
     localStorage.setItem("userId", user.token);
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
-    console.log(user)
   }
 
   private getUserFromLocalStorage(): User {
     const userJson = localStorage.getItem(this.USER_KEY);
     if (userJson) return JSON.parse(userJson) as User;
     return new User();
-  
+
   }
 
-  
 
-  register(userRegiser:IUserRegister): Observable<User>{
+
+  register(userRegiser: IUserRegister): Observable<User> {
     return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
       tap({
         next: (user) => {
@@ -77,8 +78,14 @@ export class UserService {
   }
 
   logOut(): void {
-      
-      localStorage.clear();
-      window.location.reload();
-    }
+
+    localStorage.clear();
+    window.location.reload();
+  }
+
+
+  getPlacesByUserId(): Observable<Places[]> {
+    return this.http.get<Places[]>(PLACE_URL)
+  }
+
 }

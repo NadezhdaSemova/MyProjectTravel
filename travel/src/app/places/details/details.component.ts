@@ -11,6 +11,9 @@ import { Places } from 'src/app/share/models/Places';
 export class DetailsComponent implements OnInit {
 
   currentPlace = {} as Places;
+  currentUserId = localStorage.getItem('userId') as string;
+  postOwner = '';
+  
 
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute) { }
 
@@ -18,6 +21,9 @@ export class DetailsComponent implements OnInit {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
       this.currentPlace = place
+      this.postOwner = place.ownerId as string;
+      console.log(this.postOwner)
+      console.log(this.currentUserId)
     }
     )
   }

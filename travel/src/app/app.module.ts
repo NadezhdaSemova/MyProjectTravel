@@ -12,20 +12,25 @@ import { PlacesModule } from './places/places.module';
 import { PagesRoutingModule } from './pages/pages-routing.modules';
 import { PlacesRoutingModule } from './places/places-router.module';
 import { UserRoutingModule } from './users/users-router.module';
-import { AppInterceptor } from './app.interceptor';
 
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
+    FormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
@@ -42,9 +47,10 @@ import { ToastrModule } from 'ngx-toastr';
     PagesModule,
     UsersModule,
     ShareModule,
-    PlacesModule
+    PlacesModule,
+    
   ],
-  providers: [AppInterceptor],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from '../app-routing.module';
+import { UserPlacesPipe } from '../pipes/user-places.pipe';
+import { PlacesRoutingModule } from '../places/places-router.module';
 
 
 @NgModule({
@@ -21,7 +23,12 @@ import { AppRoutingModule } from '../app-routing.module';
       positionClass: "toast-bottom-right",
       newestOnTop: false
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    //Pipe
+    UserPlacesPipe,
+
+    PlacesRoutingModule
   ],
   exports: [
     LoginComponent,

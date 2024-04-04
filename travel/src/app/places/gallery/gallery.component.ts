@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 export class GalleryComponent {
 
   places: Places[] = [];
+  searchPlace = ''
 
   constructor(private placesService: PlacesService, activateRoute: ActivatedRoute) {
     let placeObservable: Observable<Places[]>;

@@ -28,4 +28,7 @@ export class PlacesService {
     return this.http.post<Places>(PLACE_CREATE_URL, payload)
   }
 
+  editPlace(id: string, place: Places){
+    return this.http.put(PLACE_BY_ID_URL + id, place)
+  }
 }

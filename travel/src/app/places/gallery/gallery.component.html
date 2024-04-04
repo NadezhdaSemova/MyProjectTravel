@@ -1,14 +1,24 @@
-<!-- <app-search></app-search> -->
 <div class="create">
     <button [routerLink]="['/add/place']">Add new place</button>
 </div>
+
+<div class="search-bar">
+    <form>
+        <input [(ngModel)]="searchPlace" type="text" placeholder="Search.." name="search" >
+    
+    </form>
+</div>
+
 <section class="gallery">
     <div class="container">
         <div class="gallery-site">
             <h1>Gallery</h1>
             
             <div class="places">
-                <div *ngFor="let place of places" class="card">
+                <div *ngFor="let place of places | search: searchPlace " class="card">
+                    <h3>
+                        {{place.place}}
+                    </h3>
                     <img src={{place.imgUrl}}
                         alt="">
                     <a [routerLink]="['/places/', place._id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>

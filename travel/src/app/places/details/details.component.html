@@ -15,8 +15,8 @@
                         
                     </div>
                     <div class="btn-action">
-                        <button><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-trash"></i></button>
+                        <button *ngIf="currentUserId == postOwner" [routerLink]="['/edit/', currentPlace._id]"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button *ngIf="currentUserId == postOwner"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </article>
 

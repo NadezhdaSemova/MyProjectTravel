@@ -3,8 +3,8 @@ const userService = require("../services/userService");
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const result = await userService.register({ email, password });
+    const { email, password, username } = req.body;
+    const result = await userService.register({ email, password, username });
 
     res.json(result);
   } catch ({ message }) {
@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.end(); // TODO: check if the token is valid
+  res.end();
 });
 
 module.exports = router;

@@ -6,7 +6,8 @@ import { DeleteComponent } from './delete/delete.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from '../pipes/search.pipe';
 
 
 
@@ -19,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditComponent   
   ],
   imports: [
-    CommonModule, AppRoutingModule, ReactiveFormsModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule, FormsModule,
+    //Pipe
+    SearchPipe
   ],
   exports: [
     CreateComponent,
