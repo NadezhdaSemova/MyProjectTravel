@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from '../places.service';
-import { Places } from 'src/app/share/models/Places';
+import { Like, Places } from 'src/app/share/models/Places';
 
 @Component({
   selector: 'app-details',
@@ -27,6 +27,16 @@ export class DetailsComponent implements OnInit {
     )
   }
 
+  getLikes(){
+    const currentPlaceId = this.activatedRout.snapshot.params['id']
+    let oldLikes = this.currentPlace.likes;
+   const likesNew: any = oldLikes.push(this.currentUserId);
+
+    const upgradeLikes: any  ={
+      likes: likesNew
+    }
+    this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() =>{})
+  }
  
   deletePlace(){
     const currentPlaceId = this.activatedRout.snapshot.params['id']

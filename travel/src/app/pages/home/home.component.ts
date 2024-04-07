@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.placesService.getPlaces().subscribe((place) =>
-      this.places = place.sort((a, b) => b.likes - a.likes)
+      this.places = place.sort((a, b) => b.likes.length - a.likes.length)
     )
   }
 }

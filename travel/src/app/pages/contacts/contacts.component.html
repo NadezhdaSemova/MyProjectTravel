@@ -7,23 +7,28 @@
             <div class="col-lg-8">
                 <div class="contact-form bg-white" style="padding: 30px;">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form [formGroup]="contactForm" (ngSubmit)="postContact()" name="sentMessage" id="contactForm" novalidate="novalidate">
                         <div class="form-row">
                             <div class="control-group col-sm-6">
-                                <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
+                                <input formControlName="email" class="form-control p-4" id="email" placeholder="Your Email"
                                     required="required"/>
-                                <p class="help-block text-danger"></p>
+
+                                    <div *ngIf="contactForm.controls.email.invalid && contactForm.controls.email.touched">It`s not correct email</div>
+                                    
                             </div>
                         </div>
+
                         <div class="control-group">
-                            <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
+                            <input formControlName="subject" type="text" class="form-control p-4" id="subject" placeholder="Subject"
                                 required="required" />
-                            <p class="help-block text-danger"></p>
+                                <div *ngIf="contactForm.controls.subject.invalid && contactForm.controls.subject.touched">Subject is require!</div>
                         </div>
+
                         <div class="control-group">
-                            <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                            <textarea formControlName="message" class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
                                 required="required"></textarea>
-                            <p class="help-block text-danger"></p>
+                                <div *ngIf="contactForm.controls.message.invalid && contactForm.controls.message.touched">Message is require!</div>
+                           
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send Message</button>

@@ -11,7 +11,7 @@
                     <p>{{currentPlace.description}}
                     </p>
                     <div class="btn-like">
-                        <button *ngIf="currentUserId != postOwner"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button *ngIf="currentUserId != postOwner" (click)="getLikes()"><i class="fa-solid fa-thumbs-up"></i></button>
                         
                     </div>
                     <div class="btn-action">

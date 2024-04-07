@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlacesService } from '../places.service';
 import { Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
       place: fv.place,
       description: fv.description,
       imgUrl: fv.imgUrl,
-      likes: 0,
+      likes: [],
       ownerId: userId 
     };
 

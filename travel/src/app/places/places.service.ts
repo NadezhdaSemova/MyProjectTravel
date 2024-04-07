@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, filter, map } from 'rxjs';
-import { Places } from '../share/models/Places';
+import { Like, Places } from '../share/models/Places';
 import { PLACES_BY_SEARCH, PLACE_BY_ID_URL, PLACE_CREATE_URL, PLACE_URL } from 'src/constants/url';
 
 @Injectable({
@@ -32,8 +32,8 @@ export class PlacesService {
     return this.http.put(PLACE_BY_ID_URL + id, place)
   }
 
-  countLikes(id: string, like: number){
-    return this.http.put(PLACE_BY_ID_URL + id, like);
+  countLikes(id: string, like: Like){
+    return this.http.put(PLACE_BY_ID_URL + id, like)
   }
 
   deletePlace (id: string){

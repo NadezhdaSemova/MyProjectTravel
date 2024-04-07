@@ -5,6 +5,7 @@ import { ErrorComponent } from './error/error.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,7 @@ import { AppRoutingModule } from '../app-routing.module';
     AboutComponent
   ],
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule
   ],
   exports: [
     HomeComponent,

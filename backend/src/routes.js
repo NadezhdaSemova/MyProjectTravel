@@ -6,6 +6,6 @@ const contactController = require("./controllers/contactController")
 
 router.use("/api/users", userController);
 router.use("/api/places", placeController);
-router.use("/api/constact", contactController);
+router.use("/api/contact", contactController);
 
 module.exports = router;
