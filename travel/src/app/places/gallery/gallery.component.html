@@ -1,5 +1,5 @@
 <div class="create">
-    <button [routerLink]="['/add/place']">Add new place</button>
+    <button [routerLink]="['/add']">Add new place</button>
 </div>
 
 <div class="search-bar">
@@ -15,13 +15,13 @@
             <h1>Gallery</h1>
             
             <div class="places">
-                <div *ngFor="let place of places | search: searchPlace " class="card">
+                <div *ngFor="let currentplace of places | search: searchPlace" class="card">
                     <h3>
-                        {{place.place}}
+                        {{currentplace.place}}
                     </h3>
-                    <img src={{place.imgUrl}}
-                        alt="">
-                    <a [routerLink]="['/places/', place._id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>
+                    <img src={{currentplace.imgUrl}}
+                        >
+                    <a [routerLink]="['/places/', currentplace._id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>
                 </div>
 
             </div>

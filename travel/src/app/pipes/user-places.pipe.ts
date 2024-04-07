@@ -18,8 +18,6 @@ export class UserPlacesPipe implements PipeTransform {
       
 
       if(currentOwner == userId){
-        console.log(currentOwner);
-      console.log(`userId${userId}`)
         resultArray.push(current);
       }
     }

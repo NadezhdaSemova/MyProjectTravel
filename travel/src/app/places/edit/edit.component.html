@@ -5,15 +5,15 @@
                 <input type="checkbox" id="chk" aria-hidden="true">
 
                 <div class="signup">
-                    <form (ngSubmit)="editPlace">
+                    <form >
                         <label for="chk" aria-hidden="true">Edit place</label>
-                        <input type="text" name="txt" [(ngModel)]="place.place">
+                        <input type="text" name="txt" [(ngModel)]="currentPlace.place">
 
-                        <input type="text" name="description" [(ngModel)]="place.description">
+                        <input type="text" name="description" [(ngModel)]="currentPlace.description">
 
-                        <input type="text" name="imgUrl" [(ngModel)]="place.imgUrl">
+                        <input type="text" name="imgUrl" [(ngModel)]="currentPlace.imgUrl">
                         
-                        <button (click)="editPlace()" [routerLink]="['/places/', place._id]">Edit</button>
+                        <button (click)="editPlace($event)" [routerLink]="['/places/', currentPlace._id]">Edit</button>
                         
                     </form>
                 </div>

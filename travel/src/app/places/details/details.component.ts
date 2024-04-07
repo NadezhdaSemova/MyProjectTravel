@@ -14,18 +14,20 @@ export class DetailsComponent implements OnInit {
   currentUserId = localStorage.getItem('userId') as string;
   postOwner = '';
   
+  
 
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
-      this.currentPlace = place
+      this.currentPlace = place;
       this.postOwner = place.ownerId as string;
     }
     )
   }
 
+ 
   deletePlace(){
     const currentPlaceId = this.activatedRout.snapshot.params['id']
     this.placesService.deletePlace(currentPlaceId).subscribe( () => {

@@ -43,8 +43,8 @@ export class UserService {
   }
 
   private setUserToLocalStorage(user: User) {
+    
     localStorage.setItem("email", user.email);
-    localStorage.setItem('username', user.username);
     localStorage.setItem("userId", user._id);
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
@@ -53,10 +53,7 @@ export class UserService {
     const userJson = localStorage.getItem(this.USER_KEY);
     if (userJson) return JSON.parse(userJson) as User;
     return new User();
-
   }
-
-
 
   register(userRegiser: IUserRegister): Observable<User> {
     return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(

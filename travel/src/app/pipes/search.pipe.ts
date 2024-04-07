@@ -9,14 +9,13 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class SearchPipe implements PipeTransform {
 
     transform(value: any, filterString: string) {
-        if (value.length === 0){
-            return [];
-        }
+     
+        const resultArray = [];
 
         if(filterString === ''){
-            return value;
+            resultArray.push(value);
         }
-        const resultArray = [];
+        
         for (let current of value){
             let currentPlace = current.place.toLowerCase();
             filterString = filterString.toLowerCase();

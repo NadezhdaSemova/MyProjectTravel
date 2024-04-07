@@ -27,4 +27,14 @@ router.get("/logout", (req, res) => {
   res.end();
 });
 
+router.get("/:userId", async (req, res) => {
+  try {
+    const {userId} = req.params;
+    const user = await userService.getUser(userId);
+    res.json(user);
+  }catch({message}){
+    res.status(404).json({message});
+  }
+})
+
 module.exports = router;

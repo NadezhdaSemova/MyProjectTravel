@@ -11,8 +11,7 @@ const routes: Routes = [
   {path: 'gallery', component: GalleryComponent,canActivate: [AuthActivate]},
    {path: 'places/:id', component: DetailsComponent,canActivate: [AuthActivate]},
    {path: 'edit/:id', component: EditComponent},
-   {path: 'search/:searchPlace', component: GalleryComponent,canActivate: [AuthActivate]},
-   {path: 'add/place', component: CreateComponent,canActivate: [AuthActivate]}
+   {path: 'add', component: CreateComponent,canActivate: [AuthActivate]}
 ];
 
 @NgModule({

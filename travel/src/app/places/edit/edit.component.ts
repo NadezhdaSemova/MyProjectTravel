@@ -11,14 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 export class EditComponent implements OnInit {
   id: string = '';
   data: any;
-  place: any;
+  currentPlace: any;
   
 
   constructor(private activateRoute: ActivatedRoute, private placeService: PlacesService){}
   
   
   ngOnInit(): void {
-   console.log(this.activateRoute.snapshot.params.id);
    this.id = this.activateRoute.snapshot.params.id;
    this.getPlace();
   }
@@ -26,13 +25,13 @@ export class EditComponent implements OnInit {
   getPlace(){
     this.placeService.getPlaceById(this.id).subscribe( places => {
       this.data = places;
-      this.place = this.data;
+      this.currentPlace = this.data;
     })
   }
 
-  editPlace(){
-    this.placeService.editPlace(this.id, this.place).subscribe(place => {
-
+  editPlace(event: Event){
+    event.preventDefault();
+    this.placeService.editPlace(this.id, this.currentPlace).subscribe(place => {
     })
   }
 

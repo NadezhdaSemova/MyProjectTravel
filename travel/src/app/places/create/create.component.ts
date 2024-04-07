@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlacesService } from '../places.service';
 import { Router } from '@angular/router';
@@ -41,4 +41,5 @@ export class CreateComponent implements OnInit {
       this.router.navigate(['/gallery'])
     })
   }
+
 }

@@ -16,6 +16,7 @@ import { UserRoutingModule } from './users/users-router.module';
 import { FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +37,7 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     UsersModule,
     ShareModule,
-    PlacesModule,
-    
+    PlacesModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

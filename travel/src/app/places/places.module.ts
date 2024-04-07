@@ -18,7 +18,10 @@ import { SearchPipe } from '../pipes/search.pipe';
     EditComponent   
   ],
   imports: [
-    CommonModule, AppRoutingModule, ReactiveFormsModule, FormsModule,
+    CommonModule, 
+    AppRoutingModule, 
+    ReactiveFormsModule, 
+    FormsModule,
     
     //Pipe
     SearchPipe

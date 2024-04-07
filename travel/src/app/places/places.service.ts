@@ -32,6 +32,10 @@ export class PlacesService {
     return this.http.put(PLACE_BY_ID_URL + id, place)
   }
 
+  countLikes(id: string, like: number){
+    return this.http.put(PLACE_BY_ID_URL + id, like);
+  }
+
   deletePlace (id: string){
     return this.http.delete(PLACE_BY_ID_URL + id)
   }

@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from '../app-routing.module';
 import { UserPlacesPipe } from '../pipes/user-places.pipe';
 import { PlacesRoutingModule } from '../places/places-router.module';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { PlacesRoutingModule } from '../places/places-router.module';
     RegisterComponent
   ],
   imports: [
-    CommonModule, AppRoutingModule,
+    CommonModule, 
+    AppRoutingModule,
     ReactiveFormsModule, 
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -24,11 +27,14 @@ import { PlacesRoutingModule } from '../places/places-router.module';
       newestOnTop: false
     }),
     BrowserAnimationsModule,
+    RouterModule,
 
     //Pipe
     UserPlacesPipe,
+    
 
     PlacesRoutingModule
+    
   ],
   exports: [
     LoginComponent,

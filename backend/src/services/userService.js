@@ -38,3 +38,5 @@ function getResult(user) {
 
   return result;
 }
+
+exports.getUser = (userId) => User.findById(userId);

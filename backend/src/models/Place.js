@@ -8,6 +8,6 @@ const placeSchemahema = new mongoose.Schema({
   ownerId: { type: String, require: true }
 });
 
-const Furtiture = mongoose.model("Place", placeSchemahema);
+const Place = mongoose.model("Place", placeSchemahema);
 
-module.exports = Furtiture;
+module.exports = Place;
