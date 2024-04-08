@@ -10,6 +10,7 @@
                 <article>
                     <p>{{currentPlace.description}}
                     </p>
+                    <p class="fa-solid fa-thumbs-up"> Likes {{currentPlace.likes}}</p>
                     <div class="btn-like">
                         <button *ngIf="currentUserId != postOwner" (click)="getLikes()"><i class="fa-solid fa-thumbs-up"></i></button>
                         

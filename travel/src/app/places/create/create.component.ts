@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
       place: fv.place,
       description: fv.description,
       imgUrl: fv.imgUrl,
-      likes: [],
+      likes: 0,
       ownerId: userId 
     };
 

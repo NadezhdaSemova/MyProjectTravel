@@ -3,10 +3,10 @@ export class Places {
     place!: string;
     description!: string;
     imgUrl!: string;
-    likes!: string[];
+    likes!: number;
     ownerId?: string;
 }
 
-export interface Like {
-    likes: string[];
+export class Like {
+    likes!: number;
 }

@@ -15,7 +15,6 @@ export class DetailsComponent implements OnInit {
   postOwner = '';
   
   
-
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,11 +27,11 @@ export class DetailsComponent implements OnInit {
   }
 
   getLikes(){
-    const currentPlaceId = this.activatedRout.snapshot.params['id']
-    let oldLikes = this.currentPlace.likes;
-   const likesNew: any = oldLikes.push(this.currentUserId);
+    const currentPlaceId = this.activatedRout.snapshot.params['id'];
+    let oldLikes = this.currentPlace.likes++;
+   const likesNew: number = oldLikes;
 
-    const upgradeLikes: any  ={
+    const upgradeLikes: Like  ={
       likes: likesNew
     }
     this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() =>{})
