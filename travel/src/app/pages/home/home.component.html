@@ -11,15 +11,12 @@
                         <i class="fa-solid fa-location-dot"></i>
                         <p>{{place.place}}</p>
                     </div>
-                    <div class="info">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <p>24.02.23</p>
-                    </div>
+                   
                     <div class="info">
                         <i class="fa-regular fa-thumbs-up"></i>
                         <p>{{place.likes}}</p>
                     </div>
-
+                    <a [routerLink]="['/places/', place._id]">Read about place</a>
                 </div>
             </div>
         </div>
