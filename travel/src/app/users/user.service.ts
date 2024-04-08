@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { PLACE_URL, USER_GET, USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
 import { IUserLogin, IUserRegister, UserForAuthentication } from '../share/models/Users';
@@ -24,7 +24,7 @@ export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable: Observable<User>;
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) {
+  constructor(private http: HttpClient) {
     this.userObservable = this.userSubject.asObservable();
 
   }
@@ -34,10 +34,10 @@ export class UserService {
       next: (user) => {
         this.setUserToLocalStorage(user);
         this.userSubject.next(user);
-        this.toastrService.success(`Let travel together ${user.username}`)
+        
       },
       error: (error) => {
-        this.toastrService.error(error.error, "Login is unsuccessful")
+        console.log(error.error, "Login is unsuccessful")
       }
     }))
   }
@@ -46,6 +46,7 @@ export class UserService {
     
     localStorage.setItem("email", user.email);
     localStorage.setItem("userId", user._id);
+    localStorage.setItem("token", user.token);
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 
@@ -61,13 +62,13 @@ export class UserService {
         next: (user) => {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
-          this.toastrService.success(
+          console.log(
             `Welcome to the Places ${user.username}`,
             'Register Successful'
           )
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error,
+         console.log(errorResponse.error,
             'Register Failed')
         }
       })

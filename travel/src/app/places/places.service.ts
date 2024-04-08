@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, filter, map, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Like, Places } from '../share/models/Places';
 import { PLACES_BY_SEARCH, PLACE_BY_ID_URL, PLACE_CREATE_URL, PLACE_URL } from 'src/constants/url';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) { }
+  constructor(private http: HttpClient) { }
 
   getPlaces(): Observable<Places[]> {
     return this.http.get<Places[]>(`${PLACE_URL}`);
@@ -26,14 +26,7 @@ export class PlacesService {
 
   postPlace(place: Places) {
     const payload = place;
-    return this.http.post<Places>(PLACE_CREATE_URL, payload).pipe(tap({
-      next: () => {
-        this.toastrService.success("You post successfully")
-      },
-      error: () => {
-        this.toastrService.error("You didn't post anything")
-      }
-    }))
+    return this.http.post<Places>(PLACE_CREATE_URL, payload)
   }
 
   editPlace(id: string, place: Places){
