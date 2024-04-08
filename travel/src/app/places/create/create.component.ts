@@ -13,7 +13,6 @@ export class CreateComponent implements OnInit {
 
   createForm!: FormGroup;
 
-
   constructor(private fb: FormBuilder, private placesesService: PlacesService, private router: Router){}
 
   ngOnInit(): void {
@@ -25,6 +24,7 @@ export class CreateComponent implements OnInit {
   }
   createPlace() {
     if(this.createForm.invalid) return;
+    
 
     const fv = this.createForm.value;
     let userId = localStorage.getItem('userId') || undefined;
