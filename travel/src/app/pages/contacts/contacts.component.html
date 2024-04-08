@@ -1,4 +1,26 @@
-<div class="container-fluid py-5">
+<h3>Contact From Anywhere you are!</h3>
+
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="postContact()">
+        <label for="fname">Email</label>
+        <input formControlName="email" type="text" id="fname" name="firstname" placeholder="Your email..">
+        <div *ngIf="contactForm.controls.email.invalid && contactForm.controls.email.touched" class="error">It`s not correct email.</div>
+        
+        <label for="lname">Subject</label>
+        <input formControlName="subject" type="text" id="lname" name="lastname" placeholder="Subject..">
+        <div *ngIf="contactForm.controls.subject.invalid && contactForm.controls.subject.touched" class="error">Subject is require.</div>
+
+        <label for="subject">Message</label>
+        <textarea formControlName="message" id="subject" name="subject" placeholder="Write message.." style="height:200px"></textarea>
+        <div *ngIf="contactForm.controls.message.invalid && contactForm.controls.message.touched" class="error">Message is require.</div>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+
+<!-- <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="text-center mb-3 pb-3">
             <h1>Contact From Anywhere you are!</h1>
@@ -38,4 +60,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

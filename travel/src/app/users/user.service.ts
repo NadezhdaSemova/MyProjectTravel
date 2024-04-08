@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { PLACE_URL, USER_GET, USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
 import { IUserLogin, IUserRegister, UserForAuthentication } from '../share/models/Users';
 import { User } from '../share/models/Users';

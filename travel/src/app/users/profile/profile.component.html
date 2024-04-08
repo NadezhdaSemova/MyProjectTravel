@@ -1,34 +1,42 @@
 <section class="current-profile">
     <div class="container">
-        <div class="profile">
-            <h1>Profile</h1>
-            <div class="profile-card">
+
+        <h1>Profile</h1>
+        <div class="profile-card">
+            <div class="user-info">
                 <div class="profile-image">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                         alt="">
-                </div> 
-                 <div class="profile-information">
+                </div>
+                <div class="profile-information">
                     <p>Email: {{user.email}}</p>
                     <p>Visited places: {{places.length}}</p>
                 </div>
-                <!-- <div class="btn-profile">
+            </div>
+            <!-- <div class="btn-profile">
                     <button>Follow</button>
                     <button><i class="fa-solid fa-envelope"></i></button>
                     <button><i class="fa-brands fa-facebook"></i></button>
                 </div> -->
 
-                <div class="post-places">
-                    <div *ngFor="let place of places | userPlaces: userId" class="card">
-                        <img src= "{{place.imgUrl}}"
-                            alt="">
+            <hr>
+
+            <div class="post-places">
+                <div class="post-places-by-user">Places, post by {{user.username}}</div>
+                <div class="card">
+                    <div *ngFor="let place of places | userPlaces: userId" >
+
+                        <img class="card-image" src="{{place.imgUrl}}" alt="">
                         <div class="info">
-                           
-                            <p>{{place.place}}</p>
-                            <a [routerLink]="['/places/', place._id]"><i class="fa-solid fa-book-open-reader"></i> Read More</a>
+
+                            <p><b>Place:</b> {{place.place}}</p>
+                            <p><b>Likes:</b> {{place.likes}}</p>
+                            <a [routerLink]="['/places/', place._id]"><i class="fa-solid fa-book-open-reader"></i> Read
+                                More</a>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>

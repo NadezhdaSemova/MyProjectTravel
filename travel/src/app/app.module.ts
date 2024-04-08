@@ -14,6 +14,8 @@ import { PlacesRoutingModule } from './places/places-router.module';
 import { UserRoutingModule } from './users/users-router.module';
 
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 
@@ -37,7 +39,11 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     UsersModule,
     ShareModule,
-    PlacesModule,    
+    PlacesModule, 
+    
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

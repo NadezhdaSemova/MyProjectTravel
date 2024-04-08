@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.user-info {
+display: flex;
+gap: 2em;
+justify-content: center;
+margin: 2em;
+}
+
+.profile-image{
+    flex: 0 0 10em;
+}
+
+.post-places{
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+}
+
+.post-places-by-user{
+    margin: 2em;
+    font-size: 1.5em;
+    color: white
+}
+
+.card{
+   display: flex; 
+   gap: 2em;
+   max-width: 100%;
+}
+
+img{
+    width: 20em;
+}
+
+.card-image{
+    flex: 0 0 5em;
+}
+
+.info{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
