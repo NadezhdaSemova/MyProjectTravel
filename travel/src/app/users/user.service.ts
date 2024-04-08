@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
-import { PLACE_URL, USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
+import { PLACE_URL, USER_GET, USER_LOGIN_URL, USER_REGISTER_URL } from 'src/constants/url';
 import { IUserLogin, IUserRegister, UserForAuthentication } from '../share/models/Users';
 import { User } from '../share/models/Users';
 import { Places } from '../share/models/Places';
@@ -80,6 +80,9 @@ export class UserService {
     window.location.reload();
   }
 
+  getUserById(userId: string):Observable<User>{
+    return this.http.get<User>(USER_GET + userId)
+  }
 
   getPlacesByUserId(): Observable<Places[]> {
     return this.http.get<Places[]>(PLACE_URL)
