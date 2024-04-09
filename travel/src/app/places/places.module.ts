@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from '../pipes/search.pipe';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 
@@ -24,7 +25,9 @@ import { SearchPipe } from '../pipes/search.pipe';
     FormsModule,
     
     //Pipe
-    SearchPipe
+    SearchPipe,
+
+    BrowserAnimationsModule
   ],
   exports: [
     CreateComponent,

@@ -25,34 +25,36 @@
 
             </div>
 
-            <div class="container mt-5 mb-5">
-                <div class="d-flex justify-content-center row">
-                    <div class="d-flex flex-column col-md-8">
-                        <div class="coment-bottom bg-white p-2 px-4">
-                            <form #form="ngForm" (ngSubmit)="reloadPage()">
-                                <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-                                    <input type="text" name="inputComment" class="form-control mr-3"
-                                        placeholder="Add comment" ngModel #inputComment="ngModel" required>
-                                    <button (click)="addComment(form)" class="btn btn-primary"
-                                        type="button">Comment</button>
-                                </div>
-                            </form>
-                            <section class="container-comments">
-                                <div *ngFor="let comment of placeComments" class="commented-section mt-2">
-                                    <h5 class="mr-2"><b>Author:</b> {{comment.email}}  </h5>
-                                    <span> <b>Post at:</b> {{comment.created_at | date: 'fullDate'}}</span>
-                                    
-                                    <hr>
-                                    <div class="comment-text-sm"><span><b>Comment:</b><br> {{comment.comment}}</span></div>
-                                    <button *ngIf="currentUserId == postOwner" (click)="deleteComment()"><i
-                                        class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </section>
 
-                        </div>
+            <div class="show-btn">
+                <button (click)="showComment()"> Show Comments:{{placeComments.length}}</button>
+            </div>
+            <div class="coment-bottom bg-white p-2 px-4">
+                <form #form="ngForm">
+                    <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                        <input type="text" name="inputComment" class="form-control mr-3" placeholder="Add comment"
+                            ngModel #inputComment="ngModel" required>
+                        <button (click)="addComment(form)" class="btn btn-primary" type="button">Comment</button>
                     </div>
-                </div>
+                </form>
+                <section class="container-comments" >
+                    <div *ngFor="let comment of placeComments" [@commentCard]="state" class="commented-section mt-2">
+                        <h5 class="mr-2"><b>Author:</b> {{comment.email}} </h5>
+                        <span> <b>Post at:</b> {{comment.created_at | date: 'fullDate'}}</span>
+
+                        <hr>
+                        <div class="comment-text-sm"><span><b>Comment:</b><br> {{comment.comment}}</span></div>
+                        <button (click)="deletePlace()" *ngIf="currentUserId == postOwner"><i
+                                class="fa-solid fa-trash"></i></button>
+                    </div>
+                </section>
+
+                <section *ngIf="placeComments == 0">
+                    <h1>There is no comments</h1>
+                </section>
+
             </div>
         </div>
     </div>
+
 </section>

@@ -3,11 +3,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from '../places.service';
 import { Like, Places } from 'src/app/share/models/Places';
 import { NgForm } from '@angular/forms';
+import { animate, style, state, trigger } from '@angular/animations'
+
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
+  animations: [
+    trigger('commentCard',[
+      state('show', 
+        style({
+          "display": "block",
+        }),
+      ),
+      state('hide', 
+      style({
+          "display": "none",
+        }),
+      ),
+    ]),
+  ],
 })
 export class DetailsComponent implements OnInit {
 
@@ -15,7 +31,7 @@ export class DetailsComponent implements OnInit {
   placeComments: any;
   currentUserId = localStorage.getItem('userId') as string;
   postOwner = '';
-
+  state = "hide";
 
 
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
@@ -48,6 +64,10 @@ export class DetailsComponent implements OnInit {
     this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() => { })
   }
 
+  showComment(){
+    this.state == 'show' ? this.state = "hide" : this.state = "show";
+  }
+
   addComment(form: NgForm) {
     if (form.invalid) {
       return;
@@ -65,12 +85,12 @@ export class DetailsComponent implements OnInit {
     this.reloadPage();
   }
 
-  deleteComment(){
+  deleteComment() {
     const currentCommentId = this.placeComments[0]._id;
-    
-    this.placesService.deleteComment(currentCommentId).subscribe(()=>{})
-    
-    this.reloadPage();
+
+    this.placesService.deleteComment(currentCommentId).subscribe(() => { })
+
+    this.router.navigateByUrl('/places/')
   }
 
   deletePlace() {

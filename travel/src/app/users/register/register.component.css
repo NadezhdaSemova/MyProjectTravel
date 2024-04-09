@@ -53,3 +53,17 @@
   .registration button:hover, .container-login button:hover {
     background: #6d44b8;
   }
+
+  .error{
+    color: red;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding: 10px;
+    margin-inline: 70px;
+    }
+
+    .already-user{
+      padding-bottom: 0.5em;
+    padding: 10px;
+    margin-inline: 70px;
+    }
