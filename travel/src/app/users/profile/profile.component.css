@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
 
@@ -12,43 +12,49 @@ h1 {
 }
 
 .user-info {
-display: flex;
-gap: 2em;
-justify-content: center;
-margin: 2em;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin: 2em;
 }
 
-.profile-image{
+.profile-image {
     flex: 0 0 10em;
 }
 
-.post-places{
-    display: flex;
-    flex-direction: column;
-    max-width: 80vw;
+.post-places {
+    gap: 1em;
+    justify-content: center;
+    padding-bottom: 1em;
 }
 
-.post-places-by-user{
+.post-places-by-user {
     margin: 2em;
     font-size: 1.5em;
     color: white
 }
 
-.card{
-   display: flex; 
-   gap: 2em;
-   max-width: 100%;
+.post-places .card {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    gap: 1.5em;
+    justify-content: space-around;
+    width: 80vw;
+    padding: 0.2em;
+    margin: 0 auto;
 }
 
-img{
+img {
     width: 20em;
 }
 
-.card-image{
+.card-image {
     flex: 0 0 5em;
 }
 
-.info{
+.info {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
