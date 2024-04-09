@@ -13,7 +13,7 @@ import { Places } from '../share/models/Places';
   providedIn: 'root'
 })
 export class UserService {
-  user: UserForAuthentication | undefined;
+  
 
   get isLoggedIn(): boolean {
     return !!localStorage.getItem('user')
@@ -30,7 +30,7 @@ export class UserService {
   }
 
   login(userLogin: IUserLogin): Observable<User> {
-    return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(tap({
+    return this.http.post<User>(USER_LOGIN_URL, userLogin, {withCredentials: true}).pipe(tap({
       next: (user) => {
         this.setUserToLocalStorage(user);
         this.userSubject.next(user);

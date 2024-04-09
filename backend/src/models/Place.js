@@ -6,7 +6,7 @@ const placeSchemahema = new mongoose.Schema({
   imgUrl: { type: String, required: true },
   likes: {type: Number, required: true},
   ownerId: { type: String, require: true }
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 const Place = mongoose.model("Place", placeSchemahema);
 

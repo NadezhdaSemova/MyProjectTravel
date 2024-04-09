@@ -53,3 +53,41 @@
     background: linear-gradient(90deg, rgba(36, 166, 103, 1) 0%, rgba(43, 171, 60, 0.4838882398753894) 23%);
     ;
   }
+
+  .dot {
+    height: 7px;
+    width: 7px;
+    margin-top: 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .container-comments {
+    display: flex;
+    gap: 1em;
+    margin-inline: 1em;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+
+  .commented-section{
+    
+    gap: 1em;
+    border: 0.1em solid white;
+    border-radius: 1em;
+    box-shadow: 0px 10px 5px rgba(0,0,0,0.1);
+    padding: 1em;
+    background-color: #518b8b;
+    
+  }
+
+  .mr-2, .comment-text-sm {
+    display: flex;
+    align-items: center;
+  }
+
+  h5, .comment-text-sm{
+    font-size: 1.2em;
+  }

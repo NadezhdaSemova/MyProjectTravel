@@ -4,23 +4,54 @@
             <h1>{{currentPlace.place}}</h1>
             <div class="information">
                 <div class="media">
-                    <img src={{currentPlace.imgUrl}}
-                        alt="">
+                    <img src={{currentPlace.imgUrl}} alt="">
                 </div>
                 <article>
                     <p>{{currentPlace.description}}
                     </p>
                     <p class="fa-solid fa-thumbs-up"> Likes {{currentPlace.likes}}</p>
                     <div class="btn-like">
-                        <button *ngIf="currentUserId != postOwner" (click)="getLikes()"><i class="fa-solid fa-thumbs-up"></i></button>
-                        
+                        <button *ngIf="currentUserId != postOwner" (click)="getLikes()"><i
+                                class="fa-solid fa-thumbs-up"></i></button>
+
                     </div>
                     <div class="btn-action">
-                        <button *ngIf="currentUserId == postOwner" [routerLink]="['/edit/', currentPlace._id]"><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button *ngIf="currentUserId == postOwner" (click)="deletePlace()"><i class="fa-solid fa-trash"></i></button>
+                        <button *ngIf="currentUserId == postOwner" [routerLink]="['/edit/', currentPlace._id]"><i
+                                class="fa-regular fa-pen-to-square"></i></button>
+                        <button *ngIf="currentUserId == postOwner" (click)="deletePlace()"><i
+                                class="fa-solid fa-trash"></i></button>
                     </div>
                 </article>
 
+            </div>
+
+            <div class="container mt-5 mb-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="d-flex flex-column col-md-8">
+                        <div class="coment-bottom bg-white p-2 px-4">
+                            <form #form="ngForm" (ngSubmit)="reloadPage()">
+                                <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                                    <input type="text" name="inputComment" class="form-control mr-3"
+                                        placeholder="Add comment" ngModel #inputComment="ngModel" required>
+                                    <button (click)="addComment(form)" class="btn btn-primary"
+                                        type="button">Comment</button>
+                                </div>
+                            </form>
+                            <section class="container-comments">
+                                <div *ngFor="let comment of placeComments" class="commented-section mt-2">
+                                    <h5 class="mr-2"><b>Author:</b> {{comment.email}}  </h5>
+                                    <span> <b>Post at:</b> {{comment.created_at | date: 'fullDate'}}</span>
+                                    
+                                    <hr>
+                                    <div class="comment-text-sm"><span><b>Comment:</b><br> {{comment.comment}}</span></div>
+                                    <button *ngIf="currentUserId == postOwner" (click)="deleteComment()"><i
+                                        class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

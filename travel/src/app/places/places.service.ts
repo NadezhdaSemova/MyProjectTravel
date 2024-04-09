@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Like, Places } from '../share/models/Places';
-import { PLACES_BY_SEARCH, PLACE_BY_ID_URL, PLACE_CREATE_URL, PLACE_URL } from 'src/constants/url';
+import {Comment} from '../share/models/Comment'
+import { COMMENT_URL, COMMENT_URL_ADD, PLACES_BY_SEARCH, PLACE_BY_ID_URL, PLACE_CREATE_URL, PLACE_URL } from 'src/constants/url';
 
 
 @Injectable({
@@ -14,8 +15,9 @@ export class PlacesService {
 
   getPlaces(): Observable<Places[]> {
     return this.http.get<Places[]>(`${PLACE_URL}`);
+    
   }
-
+ 
   getAllPlacesBySerachPlace(searchPlace: string) {
     return this.http.get<Places[]>(PLACES_BY_SEARCH + searchPlace)
   }
@@ -39,5 +41,18 @@ export class PlacesService {
 
   deletePlace (id: string){
     return this.http.delete(PLACE_BY_ID_URL + id)
+  }
+
+
+  getComments(): Observable<Comment[]>{
+    return this.http.get<Comment[]>(COMMENT_URL)
+  }
+
+  addComment(email: string, comment: string, placeId: string, ownerId: string){
+    return this.http.post<Comment>(COMMENT_URL_ADD, {email, comment, placeId, ownerId})
+  }
+
+  deleteComment(id: string){
+    return this.http.delete(COMMENT_URL + id);
   }
 }

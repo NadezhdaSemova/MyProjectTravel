@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from '../places.service';
 import { Like, Places } from 'src/app/share/models/Places';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -11,10 +12,12 @@ import { Like, Places } from 'src/app/share/models/Places';
 export class DetailsComponent implements OnInit {
 
   currentPlace = {} as Places;
+  placeComments: any;
   currentUserId = localStorage.getItem('userId') as string;
   postOwner = '';
-  
-  
+
+
+
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,24 +25,57 @@ export class DetailsComponent implements OnInit {
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
       this.currentPlace = place;
       this.postOwner = place.ownerId as string;
-    }
-    )
+    })
+
+    this.placesService.getComments().subscribe((comment) => {
+
+      this.placeComments = comment.filter(comment => comment.placeId === currentPlaceId);
+    })
   }
 
-  getLikes(){
+  reloadPage(): void {
+    window.location.reload();
+  }
+
+  getLikes() {
     const currentPlaceId = this.activatedRout.snapshot.params['id'];
     let oldLikes = this.currentPlace.likes++;
-   const likesNew: number = oldLikes;
+    const likesNew: number = oldLikes;
 
-    const upgradeLikes: Like  ={
+    const upgradeLikes: Like = {
       likes: likesNew
     }
-    this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() =>{})
+    this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() => { })
   }
- 
-  deletePlace(){
+
+  addComment(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    const email = localStorage.getItem('email');
+    const ownerId = localStorage.getItem('userId');
+    const currentPlaceId = this.activatedRout.snapshot.params['id'];
+
+    const comment = form.value.inputComment;
+
+    this.placesService.addComment(email!, comment, currentPlaceId, ownerId!).subscribe(() => {
+    })
+
+    this.reloadPage();
+  }
+
+  deleteComment(){
+    const currentCommentId = this.placeComments[0]._id;
+    
+    this.placesService.deleteComment(currentCommentId).subscribe(()=>{})
+    
+    this.reloadPage();
+  }
+
+  deletePlace() {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
-    this.placesService.deletePlace(currentPlaceId).subscribe( () => {
+    this.placesService.deletePlace(currentPlaceId).subscribe(() => {
       this.router.navigate(['/gallery'])
     })
   }
