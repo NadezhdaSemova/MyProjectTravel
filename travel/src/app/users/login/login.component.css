@@ -43,7 +43,7 @@
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px;
     border: none;
     outline: none;
@@ -53,4 +53,18 @@
   .registration button:hover, .container-login button:hover {
     background: #6d44b8;
   }
+  
+  .error{
+    color: red;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding: 10px;
+    margin-inline: 70px;
+    }
+
+    .not-a-member{
+      padding-bottom: 0.5em;
+    padding: 10px;
+    margin-inline: 70px;
+    }
   

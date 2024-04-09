@@ -17,6 +17,12 @@
   #chk {
     display: none;
   }
+
+  .error{
+  color: red;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  }
   
   .signup {
     position: relative;
