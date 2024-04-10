@@ -14,5 +14,5 @@ USER_GET = 'http://localhost:3030/api/users/";<br>
 
 CONTACT_URL - 'http://localhost:3030/api/contact/add"<br>
 
-export const COMMENT_URL = BASE_URL + "/api/comments/"<br>
-export const COMMENT_URL_ADD = COMMENT_URL + "/add"
+COMMENT_URL = 'http://localhost:3030/api/comments/"<br>
+COMMENT_URL_ADD = 'http://localhost:3030/api/comments/add"
