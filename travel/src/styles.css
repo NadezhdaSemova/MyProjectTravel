@@ -7,11 +7,9 @@
     box-sizing: border-box;
   }
   
-  html {
-    font: 20px/ 1.5 "Montserrat", sans-serif;
-  }
   
   body {
+    font: 18px/ 1.5 "Montserrat", sans-serif;
     background-color: rgb(57, 167, 167);
   }
   

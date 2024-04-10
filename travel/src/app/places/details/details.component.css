@@ -7,12 +7,15 @@ h1 {
   
   .information {
     display: flex;
-    align-items: center;
+    justify-items: center;
     gap: 2em;
   }
   
   .information .media {
     flex: 0 0 30em;
+    display: flex;
+  justify-content: center;
+  align-items: center;
   }
   
   .information article {
