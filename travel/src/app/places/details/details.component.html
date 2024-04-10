@@ -37,11 +37,12 @@
                         <button (click)="addComment(form)" class="btn btn-primary" type="button">Comment</button>
                     </div>
                 </form>
-                <section class="container-comments" >
+                <section class="container-comments">
                     <div *ngFor="let comment of placeComments" [@commentCard]="state" class="commented-section mt-2">
-                        <h5 class="mr-2"><b>Author:</b> {{comment.email}} </h5>
-                        <span> <b>Post at:</b> {{comment.created_at | date: 'fullDate'}}</span>
-
+                        <div class="comment-info">
+                            <h5 class="mr-2"><b>Author:</b> {{comment.email}} </h5>
+                            <span> <b>Post at:</b> {{comment.created_at | date: 'fullDate'}}</span>
+                        </div>
                         <hr>
                         <div class="comment-text-sm"><span><b>Comment:</b><br> {{comment.comment}}</span></div>
                     </div>

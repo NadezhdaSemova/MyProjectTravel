@@ -1,14 +1,17 @@
-.container-about{
+.container-about {
     display: flex;
-    background-color: #86acac;
-justify-content: center;
-align-items: center;
-    max-width: 90vw;
-    margin: 2em;
-    border-radius: 1em;
+    gap: 2em;
+    max-width: 80vw;
+    margin: 3em auto;
+    border: 2px solid #000;
+    border-radius: 0.83em;
+    padding: 2.16em;
+    background-color: #518b8b;
 }
+
 img {
     float: left;
+    width: 100%;
 }
 
 .img-with-text {
@@ -25,11 +28,8 @@ img {
     margin-bottom: 1em;
 }
 
-.about-information{
-    
-    flex: 1 0 auto;;
-    
-    gap: 1em;
+.about-information {
+    flex: 1 1 auto;
     text-indent: 2em;
     width: 90%;
 }

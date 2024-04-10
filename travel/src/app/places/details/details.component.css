@@ -89,6 +89,10 @@ h1 {
     
   }
 
+  .comment-info{
+    font-size: 1.2em;
+  }
+
   .mr-2, .comment-text-sm {
     display: flex;
     align-items: center;
