@@ -52,7 +52,4 @@ export class PlacesService {
     return this.http.post<Comment>(COMMENT_URL_ADD, {email, comment, placeId, ownerId})
   }
 
-  deleteComment(id: string){
-    return this.http.delete(COMMENT_URL + id);
-  }
 }

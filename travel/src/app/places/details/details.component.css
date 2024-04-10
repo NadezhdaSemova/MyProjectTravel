@@ -26,11 +26,6 @@ h1 {
     padding-bottom: 2em;
   }
   
-  [class*="btn"] {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1em;
-  }
   
   .information [class*="btn"] button {
     flex: 0 0 35%;
@@ -61,6 +56,17 @@ h1 {
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
+  }
+
+  .add-comment-section{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-block: 1em;
+  }
+
+  .add-comment-section button{
+    margin: 0;
   }
 
   .container-comments {

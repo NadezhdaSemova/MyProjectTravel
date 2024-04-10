@@ -27,7 +27,7 @@
 
 
             <div class="show-btn">
-                <button (click)="showComment()"> Show Comments:{{placeComments.length}}</button>
+                <button (click)="showComment()"> Show Comments:{{lengthComments}}</button>
             </div>
             <div class="coment-bottom bg-white p-2 px-4">
                 <form #form="ngForm">
@@ -44,8 +44,6 @@
 
                         <hr>
                         <div class="comment-text-sm"><span><b>Comment:</b><br> {{comment.comment}}</span></div>
-                        <button (click)="deletePlace()" *ngIf="currentUserId == postOwner"><i
-                                class="fa-solid fa-trash"></i></button>
                     </div>
                 </section>
 

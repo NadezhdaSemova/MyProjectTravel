@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlacesService } from '../places.service';
 import { Like, Places } from 'src/app/share/models/Places';
 import { NgForm } from '@angular/forms';
-import { animate, style, state, trigger } from '@angular/animations'
+import { style, state, trigger } from '@angular/animations'
 
 
 @Component({
@@ -11,14 +11,14 @@ import { animate, style, state, trigger } from '@angular/animations'
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
   animations: [
-    trigger('commentCard',[
-      state('show', 
+    trigger('commentCard', [
+      state('show',
         style({
           "display": "block",
         }),
       ),
-      state('hide', 
-      style({
+      state('hide',
+        style({
           "display": "none",
         }),
       ),
@@ -32,12 +32,14 @@ export class DetailsComponent implements OnInit {
   currentUserId = localStorage.getItem('userId') as string;
   postOwner = '';
   state = "hide";
+  lengthComments: number = 0;
 
 
   constructor(private placesService: PlacesService, private activatedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
+
     this.placesService.getPlaceById(currentPlaceId).subscribe(place => {
       this.currentPlace = place;
       this.postOwner = place.ownerId as string;
@@ -46,11 +48,13 @@ export class DetailsComponent implements OnInit {
     this.placesService.getComments().subscribe((comment) => {
 
       this.placeComments = comment.filter(comment => comment.placeId === currentPlaceId);
+      this.lengthComments = Object.keys(this.placeComments).length;
+
     })
   }
 
   reloadPage(): void {
-    window.location.reload();
+    window.location.reload();;
   }
 
   getLikes() {
@@ -64,7 +68,7 @@ export class DetailsComponent implements OnInit {
     this.placesService.countLikes(currentPlaceId, upgradeLikes).subscribe(() => { })
   }
 
-  showComment(){
+  showComment() {
     this.state == 'show' ? this.state = "hide" : this.state = "show";
   }
 
@@ -72,26 +76,16 @@ export class DetailsComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-
     const email = localStorage.getItem('email');
     const ownerId = localStorage.getItem('userId');
     const currentPlaceId = this.activatedRout.snapshot.params['id'];
-
     const comment = form.value.inputComment;
 
-    this.placesService.addComment(email!, comment, currentPlaceId, ownerId!).subscribe(() => {
-    })
-
+    this.placesService.addComment(email!, comment, currentPlaceId, ownerId!).subscribe(() => {})
+    
     this.reloadPage();
   }
 
-  deleteComment() {
-    const currentCommentId = this.placeComments[0]._id;
-
-    this.placesService.deleteComment(currentCommentId).subscribe(() => { })
-
-    this.router.navigateByUrl('/places/')
-  }
 
   deletePlace() {
     const currentPlaceId = this.activatedRout.snapshot.params['id']
