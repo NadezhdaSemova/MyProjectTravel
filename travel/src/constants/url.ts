@@ -15,4 +15,4 @@ export const USER_GET = BASE_URL + "/api/users/";
 export const CONTACT_URL = BASE_URL + "/api/contact/add"
 
 export const COMMENT_URL = BASE_URL + "/api/comments/"
-export const COMMENT_URL_ADD = COMMENT_URL + "/add"
+export const COMMENT_URL_ADD = COMMENT_URL + "add"
