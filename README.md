@@ -16,8 +16,9 @@ The gallery is sort by places name.
 
 **Details page:**
 Shows information about selected place: Name, image, description, liks.
-Likes button is show for the users, which are not a owner of the post.
+Likes button is show for the users, who is not a owner of the post.
 
+![image](https://github.com/NadezhdaSemova/MyProjectTravel/assets/106181080/fe8f62ad-2ae5-4511-8aaa-2ad419cdfabd)
 
 
 When the author of the post see detail page, there will be buttons for edit and delete.
@@ -44,11 +45,16 @@ When there is comments and the button is click, it take information about author
 
 **Contact** 
 There all users and guests can fill a form, which will be post in background
+![image](https://github.com/NadezhdaSemova/MyProjectTravel/assets/106181080/bf6fb43d-faec-401f-a862-d8584fcf06f2)
 
 
 “Logout”,
 When “Logout” guest will see:
 ![image](https://github.com/NadezhdaSemova/MyProjectTravel/assets/106181080/f5c90855-fb5f-4c2c-8c0b-a7b228a9083d)
+
+If write url, which not exist:
+![image](https://github.com/NadezhdaSemova/MyProjectTravel/assets/106181080/e47e69fd-a7f6-47cb-adc7-49833edc4af4)
+
 
 
 
